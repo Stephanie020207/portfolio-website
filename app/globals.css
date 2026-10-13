@@ -44,7 +44,75 @@
 html {
   background: var(--paper);
   color: var(--ink);
+  scroll-padding-top: 4rem;
   scroll-behavior: smooth;
+}
+
+@keyframes about-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes about-photo-rise {
+  from {
+    opacity: 0;
+    transform: translateY(36px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.about-enter {
+  opacity: 0;
+  animation: about-rise 800ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.about-enter-1 {
+  animation-delay: 80ms;
+}
+
+.about-enter-2 {
+  animation-delay: 180ms;
+}
+
+.about-enter-3 {
+  animation-delay: 280ms;
+}
+
+.about-enter-4 {
+  animation-delay: 400ms;
+}
+
+.about-enter-5 {
+  animation-delay: 520ms;
+}
+
+.about-photo-enter {
+  opacity: 0;
+  animation: about-photo-rise 1000ms cubic-bezier(0.2, 0.75, 0.25, 1) 220ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .about-enter,
+  .about-photo-enter {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
 }
 
 body {
@@ -55,10 +123,6 @@ body {
   font-family: var(--font-dm-sans), Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-a {
-  color: inherit;
 }
 
 .page-shell {

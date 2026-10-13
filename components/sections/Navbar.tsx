@@ -17,26 +17,36 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-paper bg-ink">
-      <div className="mx-auto px-6 h-16 flex items-center justify-between w-full">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-paper bg-ink min-[2560px]:border-b-2">
+      <div className="mx-auto flex h-16 w-full items-center justify-between px-6 min-[2560px]:h-28 min-[2560px]:px-16">
         <Link
           href="/"
           aria-label="Back to homepage"
-          className="flex flex-col leading-tight gap-0"
+          className="flex flex-col gap-0 leading-tight"
           onClick={() => setIsOpen(false)}
         >
-          <Typography font="display" color="mist" size="heading-06">
+          <Typography
+            font="display"
+            color="mist"
+            size="heading-05"
+            className="min-[2560px]:!text-4xl"
+          >
             Maria Stephanie Febryana Kristijanto
           </Typography>
         </Link>
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden items-center gap-6 md:flex min-[2560px]:gap-12">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-opacity hover:opacity-50"
+              className="transition-opacity hover:opacity-50 min-[2560px]:py-4"
             >
-              <Typography font="mono" color="mist" size="heading-06">
+              <Typography
+                font="mono"
+                color="mist"
+                size="heading-06"
+                className="min-[2560px]:!text-2xl"
+              >
                 {link.label}
               </Typography>
             </Link>
